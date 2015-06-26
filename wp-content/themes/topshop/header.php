@@ -16,12 +16,12 @@ global $woocommerce;
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="/importadoraseverino/wp-content/themes/topshop/js/main.js"></script> 
+<script src="/wp-content/themes/topshop/js/main.js"></script> 
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <div id="loading">
-	<img src="/importadoraseverino/wp-content/themes/topshop/images/loader.gif">
+	<img src="/wp-content/themes/topshop/images/loader.gif">
 </div>
 <header id="masthead" class="site-header topshop-header-layout-standard" role="banner">
     

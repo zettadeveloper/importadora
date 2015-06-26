@@ -1357,6 +1357,10 @@ a:active {
 
 article .entry-title {
     margin: 0 0 8px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 article .entry-meta {
     color: #B0B0B0;
@@ -2003,3 +2007,9 @@ color: red;
 margin-left: 35%;
 position: relative;
 }*/
+
+/* Mi Carrito */
+
+.my-car-product{
+	width: 25%;display: table-cell;float:left;list-style: none;
+}

@@ -1,9 +1,12 @@
 <?php
-include "../../../../wp-load.php"; 
+require "../../../../wp-load.php";
+
 global $wpdb;
 $response = array();
 $table = "user_products";
 $data = array();
+
+
 
 if(!empty($_GET)){
 	$data['id_product'] = $_GET['id'];
@@ -23,6 +26,7 @@ if(!empty($_GET)){
 	$response['status'] = 'error';
 	$response['msg'] = 'Un problema ha ocurrido durante el proceso de inserción, porfavor intenta nuevamente.';
 }
+
 
 echo json_encode($response);
 ?>

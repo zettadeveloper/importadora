@@ -16,7 +16,7 @@
                 <div class="site-header-right-link"><a href="" title=""</a></div>
                 <div class="site-header-right-link"><a href="/importadoraseverino/mi-cuenta" title="">Mi Cuenta</a></div>
             <div class="header-cart">
-                <a class="header-cart-contents" href="" title="">
+                <a class="header-cart-contents" href="/mi-carrito" title="">
                     <span class="header-cart-amount">
                     </span>
                     <span class="header-cart-checkout">

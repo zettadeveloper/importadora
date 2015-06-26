@@ -9,7 +9,7 @@ global $wpdb;
 
 
 if(isset($_GET['id']) && is_numeric((int)$_GET['id'])){
-	$products = $wpdb->get_results("SELECT * FROM product WHERE id_category = ".$_GET['id'], ARRAY_A);
+	$products = $wpdb->get_results("SELECT * FROM products WHERE categories_id LIKE '%".$_GET['id']."%'", ARRAY_A);
 }
 
 foreach ($products as $key => $product) {

@@ -1,7 +1,7 @@
 function addProductToCar(id){
 	
 	$.ajax({
-		url: "http://localhost/importadoraseverino/wp-content/themes/topshop/functions/add_product_car.php?id="+id,
+		url: "http://www.importadoraseverino.com/wp-content/themes/topshop/functions/add_product_car.php?id="+id,
 		dataType: "json",
 		beforeSend: showLoading(),
 		success: function(result){
@@ -25,5 +25,5 @@ function hideLoading(){
 }
 
 $(document).ready(function(){
-	
+	console.log("JSDO");
 });
