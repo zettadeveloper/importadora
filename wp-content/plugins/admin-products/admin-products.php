@@ -34,6 +34,7 @@ add_action( 'admin_menu', 'my_plugin_menu' );
 /** Step 1. */
 function my_plugin_menu() {
 	add_options_page( 'Administrar Productos', 'Administrar Productos', 'manage_options', 'admin-products', 'my_plugin_options' );
+	add_pages_page('My Plugin Pages', 'My Plugin', 'read', 'my-unique-identifier', 'my_plugin_function');
 }
 
 /** Step 3. */
@@ -50,6 +51,14 @@ function my_plugin_options() {
 
 }
 
+function my_action_callback() {
+  global $wpdb; // this is how you get access to the database
+
+  include "functions/send_quote.php";
+
+  wp_die(); // this is required to terminate immediately and return a proper response
+}
+
  add_action( 'admin_head', 'generate_report_load_script' );
- 
+ add_action( 'wp_ajax_my_action', 'my_action_callback' );
  ?>

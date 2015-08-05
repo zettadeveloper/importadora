@@ -14,11 +14,6 @@ if($id_user > 0){
 	$results = $wpdb->get_results( 'SELECT up.id_product, up.stock, p.precio, p.id_post, p.image, p.name FROM user_products as up INNER JOIN products as p ON (up.id_product = p.id_product) WHERE id_status_product = 1 AND id_user = '.$id_user, ARRAY_A );
 }
 
-// echo "<pre>";
-// print_r($results);
-// echo "</pre>";
-
-
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -40,7 +35,7 @@ if($id_user > 0){
 						<div class="my-car-product"><?php echo $value['name'];?></div>
 						<div class="my-car-product"><?php echo $value['precio'];?></div>
 						<div class="my-car-product"><?php echo $value['stock'];?></div>
-						<div class="my-car-product"><img src="http://www.importadoraseverino.com/wp-content/plugins/admin-products/uploads/<?php echo $value['image'];?>" style="width: 100px; height:100px"></div>
+						<div class="my-car-product"><img src="http://www.importadoraseverino.com/wp-content/plugins/admin-products/uploads/<?php echo (empty($value['image']) == FALSE) ? $value['image'] : 'noimage.jpg';?>" style="width: 100px; height:100px"></div>
 					</li>
 					<div style="clear: both;"></div>
 					<hr>
@@ -57,9 +52,9 @@ if($id_user > 0){
 			?>
 			
 			
-			<div style="height: 100px"></div>
+			<div style="height: 50px"></div>
 			<div>
-				
+				<button onclick="create_quote()">Cotizar</button>
 			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->

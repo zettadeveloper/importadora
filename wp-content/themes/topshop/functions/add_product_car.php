@@ -6,13 +6,14 @@ $response = array();
 $table = "user_products";
 $data = array();
 
+$user = wp_get_current_user();
 
 
 if(!empty($_GET)){
 	$data['id_product'] = $_GET['id'];
-	$data['id_user'] = 2;
+	$data['id_user'] = $user->data->ID;
 	$data['id_status_product'] = 1;
-	$data['stock'] = 1;
+	$data['stock'] = $_GET['stock'];
 	$wpdb->insert($table,$data,array());
 	
 	if($wpdb->insert_id > 0){

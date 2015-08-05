@@ -25,7 +25,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 } ?>
 
-<div id="secondary" class="widget-area" role="complementary">
+<div id="secondary" class="col-md-3 col-xs-12" role="complementary">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
 	<div id="categories">
@@ -39,12 +39,12 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 						<?php
 						if(array_key_exists('sub', $category)){
 							echo $category['category_name'];
-						?>	
+						?>
 							<i onclick="showSubCategories(<?=$category['id_category'];?>)" id="arrow-<?=$category['id_category'];?>" class="fa fa-plus" style="margin-left: 5px;"></i>
 						<?php
 						}else{
 							?>
-							<a href="<?=get_site_url();?>/categorias?id=<?=$category['id_category'];?>"><?= $category['category_name'];?></a> 
+							<a href="<?=get_site_url();?>/categorias?id=<?=$category['id_category'];?>"><?= $category['category_name'];?></a>
 							<?php
 						}
 						?>
@@ -54,7 +54,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 						?>
 						<div id="category-<?php echo $category['id_category'];?>" style="display:none">
 						<?php
-							foreach ($category['sub'] as $sub_key => $subcategory) {	
+							foreach ($category['sub'] as $sub_key => $subcategory) {
 							?>
 								<div class="sub-category"><a href="<?=get_site_url();?>/categorias?id=<?=$subcategory['id_category'];?>"><?= $subcategory['category_name'];?></a></div>
 							<?php
@@ -87,7 +87,7 @@ function showSubCategories(id){
 }
 
 $( document ).ready(function() {
-    
+
 });
 
 

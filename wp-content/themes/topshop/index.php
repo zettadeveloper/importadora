@@ -11,52 +11,69 @@
  * @package topshop
  */
 
-get_header(); 
+get_header();
 
 //echo "<pre>";print_r(wp_get_current_user());echo "</pre>";
-
 ?>
-    
-    <?php if ( ! is_front_page() ) : ?>
-        
-        <?php if ( function_exists( 'bcn_display' ) ) : ?>
-        <div class="breadcrumbs">
-            <?php bcn_display(); ?>
-        </div>
-        <?php endif; ?>
-    
-    <?php endif; ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-        
-        <?php get_template_part( '/templates/titlebar' ); ?>
+<?php if ( ! is_front_page() ) :
+?>
 
-		<?php if ( have_posts() ) : ?>
+<?php if ( function_exists( 'bcn_display' ) ) :
+?>
+<div class="breadcrumbs">
+	<?php bcn_display(); ?>
+</div>
+<?php endif; ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+<?php endif; ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+<nav id="site-navigation" class="main-navigation  toggled" role="navigation" style="margin-bottom: 15px">
 
-			<?php endwhile; ?>
+    <div class="site-container">
+        <div class="menu-primary-container">
+        	<ul id="menu-primary" class="menu nav-menu" aria-expanded="true">
+        		<li id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-31">
+        			<a href="http://www.importadoraseverino.com/">Piñones</a>
+        		</li>
+				<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
+					<a href="http://www.importadoraseverino.com/pagina-ejemplo/">Tuercas</a>
+				</li>
+				<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
+					<a href="http://www.importadoraseverino.com/pagina-ejemplo/">Testing 1</a>
+				</li>
+				<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
+					<a href="http://www.importadoraseverino.com/pagina-ejemplo/">Testing 2</a>
+				</li>
+				<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
+					<a href="http://www.importadoraseverino.com/pagina-ejemplo/">Testing 3</a>
+				</li>
+			</ul>
+		</div>
+    </div>
 
-			<?php topshop_paging_nav(); ?>
+</nav>
 
-		<?php else : ?>
+<div class="container">
+	<div class="row">
+		<div id="primary" class="col-md-9 col-xs-12">
+			<main id="main" class="site-main" role="main">
 
-			<?php get_template_part( 'content', 'none' ); ?>
+				<?php get_template_part('/templates/titlebar'); ?>
 
-		<?php endif; ?>
+				<?php if ( have_posts() ) :
+				 		while ( have_posts() ) : the_post();
+									get_template_part('content', get_post_format());
+				 		endwhile;
+								topshop_paging_nav();
+					else :
+							get_template_part('content', 'none'); ?>
+				<?php endif; ?>
+				<div class="clearfix"></div>
+			</main><!-- #main -->
+		</div><!-- #primary -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-    <?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
+	</div>
+</div>
 <?php get_footer(); ?>

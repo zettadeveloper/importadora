@@ -12,18 +12,33 @@
     </div><!-- .site-branding -->
     
     <div class="site-header-right">
-
-                <div class="site-header-right-link"><a href="" title=""</a></div>
-                <div class="site-header-right-link"><a href="/importadoraseverino/mi-cuenta" title="">Mi Cuenta</a></div>
-            <div class="header-cart">
-                <a class="header-cart-contents" href="/mi-carrito" title="">
-                    <span class="header-cart-amount">
-                    </span>
-                    <span class="header-cart-checkout">
-                        <span>Items (0)</span> <i class="fa fa-shopping-cart"></i>
-                    </span>
-                </a>
-            </div>
+				
+				<?php 
+				if ( is_user_logged_in() ){
+					?>
+					<div class="site-header-right-link"><a href="" title=""</a></div>
+	                <div class="site-header-right-link"><a href="/mi-cuenta" title="">Mi Cuenta</a></div>
+		            <div class="header-cart">
+		                <a class="header-cart-contents" href="/mi-carrito" title="">
+		                    <span class="header-cart-amount">
+		                    </span>
+		                    <span class="header-cart-checkout">
+		                        <span>Items (0)</span> <i class="fa fa-shopping-cart"></i>
+		                    </span>
+		                </a>
+		            </div>
+		            <div class="site-header-right-link"><a href="" title=""</a></div>
+		            <div class="site-header-right-link"><a href="<?php echo wp_logout_url("http://www.importadoraseverino.com/"); ?>">Salir</a></div>
+					<?
+				}else{
+					?>
+					<div class="site-header-right-link"><a href="" title=""</a></div>
+	                <div class="site-header-right-link"><a href="/login" title="">Iniciar Sesion</a></div>
+	                <div class="site-header-right-link"><a href="/registrarse" title="">Registrarse</a></div>
+					<?
+				}
+				 ?>
+                
             
     </div>
     <div class="clearboth"></div>
